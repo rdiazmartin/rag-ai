@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class RagController {
     private RagService service;
 
+    public RagController(RagService service) {
+        this.service = service;
+    }
+
     @GetMapping("/ia/info")
     public InfoResponse getInfo(InfoRequest msg) {
         return service.getInfo(msg);

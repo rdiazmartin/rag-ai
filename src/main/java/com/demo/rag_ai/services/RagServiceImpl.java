@@ -34,7 +34,6 @@ public class RagServiceImpl implements RagService, CommandLineRunner {
     @Override
     public InfoResponse getInfo(InfoRequest msg) {
         ChatResponse response = chatClient.prompt()
-                .advisors(new QuestionAnswerAdvisor(vectorStore))
                 .user(msg.msg())
                 .call()
                 .chatResponse();
